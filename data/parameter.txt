@@ -1,0 +1,22 @@
+address =https://outbound.ynt.ai/outplan/index.html#/login
+account =gurr@kalamodo.com
+password =ynt123
+report_path=report\\
+cases_path=src\\testCases\\
+title=外呼计划UI层测试报告
+description=测试情况
+driver=driver\\chromedriver.exe
+e_account=//input[@placeholder="注册邮箱地址"]
+e_password=//input[@type="password"]
+e_login_button=//input[@value="立即登录"]
+e_updateGroup=//div[@class="caTitle"]/i
+e_phoneNumManage=//span[text()="客户管理"]
+e_addGroup=//span[text()="添加分组"]
+e_inputName=//input[@placeholder="输入名称"]
+e_commit=//i[@title="确定"]
+e_deleteGroup=//span[text()="%var%"]/ancestor::li
+e_deleteCommit=//span[text()="%var%"]/ancestor::li/div/i[@title="删除"]
+e_ok=//div[@class="ivu-modal-confirm"]/div[3]/button[2]/span
+e_closeCusGroup=//div[text()='客户分组']/ancestor::div[@class='ivu-modal-content']/a
+groupName=自动化测试
+e_personalDetails=//a[contains(text(),'gurr@kalamodo.com')]
