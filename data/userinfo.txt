@@ -1,0 +1,75 @@
+address =https://outbound.ynt.ai/outplan/index.html#/login
+account =gurr@kalamodo.com
+password =ynt123
+report_path=report\\
+cases_path=src\\testCases\\
+title=外呼计划UI层测试报告
+description=测试情况
+driver=driver\\chromedriver.exe
+e_account=//input[@placeholder="注册邮箱地址"]
+e_password=//input[@type="password"]
+e_login_button=//input[@value="立即登录"]
+e_updateGroup=//div[@class="caTitle"]/i
+e_phoneNumManage=//span[text()="客户管理"]
+e_addGroup=//span[text()="添加分组"]
+e_inputName=//input[@placeholder="输入名称"]
+e_commit=//i[@title="确定"]
+e_deleteGroup=//span[text()="%var%"]/ancestor::li
+e_deleteCommit=//span[text()="%var%"]/ancestor::li/div/i[@title="删除"]
+e_ok=//div[@class="ivu-modal-confirm"]/div[3]/button[2]/span
+e_closeCusGroup=//div[text()='客户分组']/ancestor::div[@class='ivu-modal-content']/a
+groupName=自动化测试
+e_personalDetails=//a[contains(text(),'gurr@kalamodo.com')]
+e_sip=//li/span[contains(text(),'线路管理')]
+e_addButton=//button[@class="ivu-btn ivu-btn-primary"]
+e_ownSip=//li[text()='自有线路']
+e_industryType=//div[@class='vue-treeselect__control-arrow-container']
+e_financial=//label[contains(text(),'金融类')]
+e_education=//label[contains(text(),'教育类')]
+e_sipText=//input[@placeholder="请输入SIP账号"]
+e_sipPassword=//input[@placeholder="请输入SIP密码"]
+e_ipText=//input[@placeholder="请输入IP"]
+e_portText=//input[@placeholder="请输入端口"]
+e_locationSelectText=//input[@placeholder="请选择"]
+e_city=//ul[@class="ivu-cascader-menu"]/li[contains(text(),'%var%')]
+e_sipState=//span[@class="ivu-switch ivu-switch-checked ivu-switch-large"]
+e_saveButton=//button[@class="mr60 ivu-btn ivu-btn-primary"]
+sipAccount=17100001888
+number=17100001888
+sipPassword=1234
+sipIp=172.20.10.2
+sipPort=5060
+city=北京
+e_updateSip=//span[text()='%var%']/ancestor::td[@class="ivu-table-hidden"]/preceding-sibling::td/div/div/span[text()='%edit%']
+e_ensure=//span[text()='确定']
+e_assertSip=//span[text()='%var%']
+e_outPlanMenu=//span[text()="外呼计划"]
+e_createPlan=//span[text()='创建外呼']
+e_planName=//input[@placeholder='不超过30个字符']
+planName=autoTest
+e_selectScene=//span[text()='请选择呼叫场景']
+e_sceneName=//li[text()='%var%']
+sceneName=在线教育
+e_callType=//label[text()='%var%']
+e_selectSip=//span[text()='可选择']
+e_addSip=//span[text()='%var%']/ancestor::tr/td[1]/div/label/span/input
+e_allSelectSip=//span[text()='sip名称']/ancestor::tr/th[1]/div/label/span/input
+e_group=//label[text()='选择客户组']/self::label/span/input
+e_down=//div[text()='新建计划']/ancestor::div[@class='ivu-modal-content']/div[2]/form/div[12]/div
+e_importNumber=//a[contains(text(),'导入号码')]
+e_manuallyAdd=//li[text()='手动添加']
+e_selectExistingGroup=//div[text()='手动添加号码']/ancestor::div[@class="ivu-modal-content"]/div[2]/form/div/div/div/label[2]/span/input
+e_selectGroup=//label[text()='添加至']/parent::div/div/div/div/div[3]
+e_all=//label[contains(text(),'%var%')]
+e_numberText=//textarea[@placeholder="请输入号码"]
+e_closePrompt=//div[text()='提示']/ancestor::div[@class="ivu-modal-content"]/a/i
+e_checkGroup=//span[text()='%var%']/ancestor::tbody[@class="ivu-table-tbody"]/tr[3]/td[1]/div/label/span/input
+e_closeSuccessPlan=//span[contains(text(),'新建外呼任务成功！')]/ancestor::div[@class="ivu-modal-content"]/a
+e_planSuspended=//p[text()='%var%']/ancestor::div[@class="cardTitle"]/p/span[text()='已暂停']
+e_planOngoing=//p[text()='qweqe']/ancestor::div[@class="cardTitle"]/p/span/span[text()='进行中']
+e_end=//p[text()='%var%']/ancestor::div[@class="card active"]/div[3]/div/span[text()='结束']
+e_endEnsure=//div[text()='提示']/ancestor::div[@class="ivu-modal-confirm"]/div[3]/button/span[text()='确定']
+e_plan=//p[text()='%var%']/ancestor::div[@class="card active"]
+e_x=//div[text()='x']
+e_finish=//p[text()='%var%']/ancestor::div[@class="cardTitle"]/p/span[text()='已结束']
+e_x_ensure=//div[text()='提示']/ancestor::div[@class="ivu-modal-confirm"]/div[3]/button[2]/span[text()='确定']

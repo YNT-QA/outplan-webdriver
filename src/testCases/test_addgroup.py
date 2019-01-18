@@ -16,7 +16,7 @@ from common.assertFunction import AssertFunction
 class TestAddGroupNum(unittest.TestCase):
     driver=None
     data=None
-    ynt=None
+    group=None
     ft=None
 
     def setUp(self):
@@ -30,16 +30,17 @@ class TestAddGroupNum(unittest.TestCase):
         self.assertTrue(ft.isElementExist(driver,'e_personalDetails'))
 
     def test_addGroupNum(self):
-        global ynt
-        ynt=cusManage(driver)
-        ynt.cus_manage()
+        global group
+        group=cusManage(driver)
+        group.cus_manage()
         time.sleep(2)
-        ynt.add_group(data.getvalue('groupName'))
+        group.add_group(data.getvalue('groupName'),data.getvalue('number'))
         time.sleep(2)
         self.assertTrue(ft.isElementExist(driver,'e_deleteGroup',data.getvalue('groupName')))
 
     def tearDown(self):
-        ynt.delete_group(data.getvalue('groupName'))
+        #删除客户组
+        group.delete_group(data.getvalue('groupName'))
         driver.find_element_by_xpath(data.getvalue('e_closeCusGroup')).click()
         time.sleep(2)
         self.assertFalse(ft.isElementExist(driver,'e_deleteGroup',data.getvalue('groupName')))
