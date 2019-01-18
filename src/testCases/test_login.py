@@ -15,12 +15,14 @@ class Testlogin(unittest.TestCase):
     driver=None
     data=None
     ft = None
+    user=None
 
     def setUp(self):
         pass
 
     def test_login(self):
-        global driver,data,ft
+        u"""账号登录"""
+        global driver,data,ft,user
         data = GetValue()
         browser=GetPath(data.getvalue('driver'))
         driver=webdriver.Chrome(browser.get_filePath())
@@ -30,4 +32,6 @@ class Testlogin(unittest.TestCase):
         self.assertTrue(ft.isElementExist(driver,'e_personalDetails'))
 
     def tearDown(self):
+        #登出
+        user.loginOut(data.getvalue('account'))
         driver.quit()

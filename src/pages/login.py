@@ -6,6 +6,7 @@ import sys
 sys.path.append('..')
 from common.get_value import GetValue
 import time
+from selenium.webdriver.common.action_chains import ActionChains
 
 class Login():
     global data
@@ -25,3 +26,8 @@ class Login():
         self.driver.find_element_by_xpath(data.getvalue('e_login_button')).click()
         time.sleep(2)
 
+    def loginOut(self,account):
+        ActionChains(self.driver).move_to_element(self.driver.find_element_by_xpath(data.getvalue('e_moveAccount').replace('%var%',account))).perform()
+        time.sleep(2)
+        self.driver.find_element_by_xpath(data.getvalue('e_loginOut')).click()
+        time.sleep(2)

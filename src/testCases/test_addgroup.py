@@ -18,9 +18,10 @@ class TestAddGroupNum(unittest.TestCase):
     data=None
     group=None
     ft=None
+    user=None
 
     def setUp(self):
-        global driver,data,ft
+        global driver,data,ft,user
         data = GetValue()
         browser = GetPath(data.getvalue('driver'))
         driver = webdriver.Chrome(browser.get_filePath())
@@ -30,6 +31,7 @@ class TestAddGroupNum(unittest.TestCase):
         self.assertTrue(ft.isElementExist(driver,'e_personalDetails'))
 
     def test_addGroupNum(self):
+        u"""添加客户组号码"""
         global group
         group=cusManage(driver)
         group.cus_manage()
@@ -44,4 +46,6 @@ class TestAddGroupNum(unittest.TestCase):
         driver.find_element_by_xpath(data.getvalue('e_closeCusGroup')).click()
         time.sleep(2)
         self.assertFalse(ft.isElementExist(driver,'e_deleteGroup',data.getvalue('groupName')))
+        #登出
+        user.loginOut(data.getvalue('account'))
         driver.quit()

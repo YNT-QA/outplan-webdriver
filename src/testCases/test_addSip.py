@@ -17,9 +17,10 @@ class TestAddSip(unittest.TestCase):
     data=None
     sip=None
     ft=None
+    user=None
 
     def setUp(self):
-        global driver,data,ft
+        global driver,data,ft,user
         data = GetValue()
         browser = GetPath(data.getvalue('driver'))
         driver = webdriver.Chrome(browser.get_filePath())
@@ -30,6 +31,7 @@ class TestAddSip(unittest.TestCase):
         self.assertTrue(ft.isElementExist(driver,'e_personalDetails'))
 
     def test_addGroupNum(self):
+        u"""添加线路"""
         global sip
         sip=SipPage(driver)
         sip.into_sip()
@@ -43,4 +45,6 @@ class TestAddSip(unittest.TestCase):
         sip.delete_sip(data.getvalue('sipAccount'),'编辑','删除')
         #断言
         self.assertFalse(ft.isElementExist(driver,'e_assertSip',data.getvalue('sipAccount')))
+        #登出
+        user.loginOut(data.getvalue('account'))
         driver.quit()

@@ -22,13 +22,14 @@ class TestCreatePlan(unittest.TestCase):
     ft = None
     sip=None
     group = None
+    user=None
 
     def setUp(self):
-        global driver,data,ft,sip,group
+        global driver,data,ft,sip,group,user
         data = GetValue()
         browser =GetPath(data.getvalue('driver'))
         driver = webdriver.Chrome(browser.get_filePath())
-        # 登录
+        #登录
         user = Login(driver)
         user.login(data.getvalue('address'),data.getvalue('account'),data.getvalue('password'))
         ft = AssertFunction()
@@ -48,6 +49,7 @@ class TestCreatePlan(unittest.TestCase):
 
 
     def test_createplan(self):
+        u"""创建外呼计划"""
         #创建计划
         global plan
         plan=OutPlanPage(driver)
@@ -69,5 +71,7 @@ class TestCreatePlan(unittest.TestCase):
         self.assertFalse(ft.isElementExist(driver, 'e_deleteGroup',data.getvalue('groupName')))
         #断言
         self.assertFalse(ft.isElementExist(driver,'e_assertSip',data.getvalue('sipAccount')))
+        #登出
+        user.loginOut(data.getvalue('account'))
         driver.quit()
 
