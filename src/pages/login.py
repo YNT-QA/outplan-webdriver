@@ -15,6 +15,7 @@ class Login():
     def __init__(self,driver):
         self.driver=driver
 
+    #登录
     def login(self,url,account,password):
         global data
         self.driver.get(url)
@@ -26,6 +27,7 @@ class Login():
         self.driver.find_element_by_xpath(data.getvalue('e_login_button')).click()
         time.sleep(2)
 
+    #登出
     def loginOut(self,account):
         ActionChains(self.driver).move_to_element(self.driver.find_element_by_xpath(data.getvalue('e_moveAccount').replace('%var%',account))).perform()
         time.sleep(2)
