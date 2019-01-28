@@ -110,6 +110,7 @@ class OutPlanPage():
     #删除计划
     def delete_plan(self,planName):
         flag=True
+        n=1
         while flag:
             time.sleep(2)
             self.driver.refresh()
@@ -141,4 +142,7 @@ class OutPlanPage():
                     flag = False
                 except:
                     pass
+            if n>150:
+                flag = False
+            n+=1
         time.sleep(2)
