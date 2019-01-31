@@ -21,9 +21,9 @@ class ScenePage():
     #创建场景库
     def create_scene(self,sceneName):
         self.driver.find_element_by_xpath(self.data.getvalue('e_sceneManage')).click()
-        sleep(2)
+        sleep(1)
         self.driver.find_element_by_xpath(self.data.getvalue('e_textVersion')).click()
-        sleep(2)
+        sleep(1)
         self.driver.find_element_by_xpath(self.data.getvalue('e_createScene')).click()
         sleep(1)
 
