@@ -29,7 +29,7 @@ class TestCreateScene(unittest.TestCase):
         user = Login(driver)
         user.login(data.getvalue('address'), data.getvalue('account'), data.getvalue('password'))
         ft = AssertFunction()
-        self.assertTrue(ft.isElementExist(driver, 'e_personalDetails'))
+        self.assertTrue(ft.isElementExist(driver,'e_personalDetails'))
 
     def test_create_scene(self):
         u"""创建场景库"""
@@ -37,7 +37,7 @@ class TestCreateScene(unittest.TestCase):
         scene=ScenePage(driver)
         scene.into_scene()
         scene.create_scene(data.getvalue('groupName'))
-
+        self.assertTrue(ft.isElementExist(driver,'e_deleteScene',data.getvalue('groupName')))
 
     def tearDown(self):
         scene.delete_scene(data.getvalue('groupName'))
