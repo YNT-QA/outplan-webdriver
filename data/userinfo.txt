@@ -75,3 +75,17 @@ e_finish=//p[text()='%var%']/ancestor::div[@class="cardTitle"]/p/span[text()='�
 e_x_ensure=//div[text()='提示']/ancestor::div[@class="ivu-modal-confirm"]/div[3]/button[2]/span[text()='确定']
 e_moveAccount=//a[contains(text(),'%var%')]
 e_loginOut=//i[text()='退出']
+e_intoScene=//span[text()='话术中心']
+e_sceneManage=//span[text()='话术配置']
+e_textVersion=//span[text()='测试版本']
+e_createScene=//span[text()='新建场景']
+e_scene_Name=//label[text()='场景名称']/following-sibling::div[@class="ivu-form-item-content"]/div/input
+e_businessType=//input[@placeholder="行业类型"]
+e_type_financial=//li[contains(text(),'金融类')]
+e_loans=//li[contains(text(),'贷款')]
+e_deleteScene=//p[contains(text(),'%var%')]//ancestor::div[@class="ivu-card-body"]/i
+e_edit=//span[text()='编辑']
+e_mainProcess=//label[contains(text(),'主流程')]
+e_addQuestion=//span[text()='添加问答']
+e_endWord=//span[text()='添加结束语']
+e_artificialService=//span[text()='添加转人工']
