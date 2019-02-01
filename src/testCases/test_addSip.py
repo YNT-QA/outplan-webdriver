@@ -30,7 +30,7 @@ class TestAddSip(unittest.TestCase):
         ft = AssertFunction()
         self.assertTrue(ft.isElementExist(driver,'e_personalDetails'))
 
-    def test_addGroupNum(self):
+    def test_addSip(self):
         u"""添加线路"""
         global sip
         sip=SipPage(driver)
