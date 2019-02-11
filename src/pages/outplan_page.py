@@ -142,7 +142,7 @@ class OutPlanPage():
                     flag = False
                 except:
                     pass
-            if n>150:
+            if n>50:
                 flag = False
             n+=1
         time.sleep(2)
