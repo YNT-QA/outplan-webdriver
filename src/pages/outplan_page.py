@@ -4,28 +4,27 @@
 # 文件: outplan_page.py
 import sys
 sys.path.append('..')
-from common.get_value import GetValue
 import time
 from selenium.webdriver.common.action_chains import ActionChains
+from data.userinfo import *
 
 class OutPlanPage():
 
     def __init__(self,driver):
         self.driver = driver
-        self.data = GetValue()
 
     #进入外呼计划菜单
     def into_outPlan(self):
-        self.driver.find_element_by_xpath(self.data.getvalue('e_outPlanMenu')).click()
+        self.driver.find_element_by_xpath(e_outPlanMenu).click()
         time.sleep(2)
 
     #创建外呼计划
     def create_outplan(self,planName,sceneName,sipAccount,groupName,callType='立即呼叫'):
 
-        self.driver.find_element_by_xpath(self.data.getvalue('e_createPlan')).click()
+        self.driver.find_element_by_xpath(e_createPlan).click()
         time.sleep(2)
 
-        elements=self.driver.find_elements_by_xpath(self.data.getvalue('e_planName'))
+        elements=self.driver.find_elements_by_xpath(e_planName)
         for element in elements:
             try:
                 element.send_keys(planName)
@@ -33,7 +32,7 @@ class OutPlanPage():
                 pass
         time.sleep(2)
 
-        elements2=self.driver.find_elements_by_xpath(self.data.getvalue('e_selectScene'))
+        elements2=self.driver.find_elements_by_xpath(e_selectScene)
         for element in elements2:
             try:
                 element.click()
@@ -41,7 +40,7 @@ class OutPlanPage():
                 pass
         time.sleep(2)
 
-        self.driver.find_element_by_xpath(self.data.getvalue('e_sceneName').replace('%var%',sceneName)).click()
+        self.driver.find_element_by_xpath(e_sceneName.replace('%var%',sceneName)).click()
         #选择呼叫类型
         if callType=='立即呼叫':
             self.select_callType(callType)
@@ -53,7 +52,7 @@ class OutPlanPage():
             self.select_callType(callType)
 
         time.sleep(2)
-        elements3 = self.driver.find_elements_by_xpath(self.data.getvalue('e_selectSip'))
+        elements3 = self.driver.find_elements_by_xpath(e_selectSip)
         for element in elements3:
             try:
                 element.click()
@@ -61,19 +60,19 @@ class OutPlanPage():
                 pass
         time.sleep(2)
 
-        self.driver.find_element_by_xpath(self.data.getvalue('e_allSelectSip')).click()
+        self.driver.find_element_by_xpath(e_allSelectSip).click()
         time.sleep(2)
-        self.driver.find_element_by_xpath(self.data.getvalue('e_addSip').replace('%var%',sipAccount)).click()
+        self.driver.find_element_by_xpath(e_addSip.replace('%var%',sipAccount)).click()
         time.sleep(2)
 
-        elements4 = self.driver.find_elements_by_xpath(self.data.getvalue('e_group'))
+        elements4 = self.driver.find_elements_by_xpath(e_group)
         for element in elements4:
             try:
                 element.click()
             except:
                 pass
 
-        elements5=self.driver.find_elements_by_xpath(self.data.getvalue('e_down'))
+        elements5=self.driver.find_elements_by_xpath(e_down)
         for element in elements5:
             try:
                 ActionChains(self.driver).drag_and_drop_by_offset(element,0,10000).perform()
@@ -81,16 +80,16 @@ class OutPlanPage():
                 pass
         time.sleep(2)
 
-        self.driver.find_element_by_xpath(self.data.getvalue('e_checkGroup').replace('%var%',groupName)).click()
+        self.driver.find_element_by_xpath(e_checkGroup.replace('%var%',groupName)).click()
         time.sleep(2)
-        elements6 = self.driver.find_elements_by_xpath(self.data.getvalue('e_ensure'))
+        elements6 = self.driver.find_elements_by_xpath(e_ensure)
         for element in elements6:
             try:
                 element.click()
             except:
                 pass
         time.sleep(3)
-        elements7 = self.driver.find_elements_by_xpath(self.data.getvalue('e_closeSuccessPlan'))
+        elements7 = self.driver.find_elements_by_xpath(e_closeSuccessPlan)
         for element in elements7:
             try:
                 element.click()
@@ -99,7 +98,7 @@ class OutPlanPage():
 
 
     def select_callType(self,callType):
-        elements = self.driver.find_elements_by_xpath(self.data.getvalue('e_callType').replace('%var%',callType))
+        elements = self.driver.find_elements_by_xpath(e_callType.replace('%var%',callType))
         for element in elements:
             try:
                 element.click()
@@ -116,29 +115,29 @@ class OutPlanPage():
             self.driver.refresh()
             try:
                 #已结束状态点击删除计划
-                self.driver.find_element_by_xpath(self.data.getvalue('e_finish').replace('%var%',planName))
-                ActionChains(self.driver).move_to_element(self.driver.find_element_by_xpath(self.data.getvalue('e_plan').replace('%var%',planName))).perform()
+                self.driver.find_element_by_xpath(e_finish.replace('%var%',planName))
+                ActionChains(self.driver).move_to_element(self.driver.find_element_by_xpath(e_plan.replace('%var%',planName))).perform()
                 time.sleep(2)
-                self.driver.find_element_by_xpath(self.data.getvalue('e_x')).click()
+                self.driver.find_element_by_xpath(e_x).click()
                 time.sleep(2)
-                self.driver.find_element_by_xpath(self.data.getvalue('e_x_ensure')).click()
+                self.driver.find_element_by_xpath(e_x_ensure).click()
                 flag=False
             except:
                 try:
                     #已暂停状态点击删除计划
-                    self.driver.find_element_by_xpath(self.data.getvalue('e_planSuspended').replace('%var%',planName))
+                    self.driver.find_element_by_xpath(e_planSuspended.replace('%var%',planName))
                     time.sleep(2)
-                    self.driver.find_element_by_xpath(self.data.getvalue('e_end').replace('%var%',planName)).click()
+                    self.driver.find_element_by_xpath(e_end.replace('%var%',planName)).click()
                     time.sleep(2)
-                    self.driver.find_element_by_xpath(self.data.getvalue('e_endEnsure').replace('%var%',planName)).click()
+                    self.driver.find_element_by_xpath(e_endEnsure.replace('%var%',planName)).click()
                     time.sleep(2)
                     self.driver.refresh()
                     time.sleep(2)
-                    ActionChains(self.driver).move_to_element(self.driver.find_element_by_xpath(self.data.getvalue('e_plan').replace('%var%',planName))).perform()
+                    ActionChains(self.driver).move_to_element(self.driver.find_element_by_xpath(e_plan.replace('%var%',planName))).perform()
                     time.sleep(2)
-                    self.driver.find_element_by_xpath(self.data.getvalue('e_x')).click()
+                    self.driver.find_element_by_xpath(e_x).click()
                     time.sleep(2)
-                    self.driver.find_element_by_xpath(self.data.getvalue('e_x_ensure')).click()
+                    self.driver.find_element_by_xpath(e_x_ensure).click()
                     flag = False
                 except:
                     pass
