@@ -15,19 +15,19 @@ import os
 class TestCreateScene(unittest.TestCase):
     driver = None
     plan = None
-    ft = None
+    check = None
     user=None
     scene=None
 
     def setUp(self):
-        global driver,ft,user
+        global driver,check,user
         browser = os.path.dirname(os.path.abspath('..'))+'\\'+Driver
         driver = webdriver.Chrome(browser)
         #登录
         user = Login(driver)
         user.login(address,account,password)
-        ft = AssertFunction()
-        self.assertTrue(ft.isElementExist(driver,e_personalDetails))
+        check = AssertFunction()
+        self.assertTrue(check.isElementExist(driver,e_personalDetails))
 
     def test_create_scene(self):
         u"""创建场景库"""
@@ -35,7 +35,7 @@ class TestCreateScene(unittest.TestCase):
         scene=ScenePage(driver)
         scene.into_scene()
         scene.create_scene(groupName)
-        self.assertTrue(ft.isElementExist(driver,e_deleteScene,groupName))
+        self.assertTrue(check.isElementExist(driver,e_deleteScene,groupName))
 
     def tearDown(self):
         scene.delete_scene(groupName)
