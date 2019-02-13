@@ -10,8 +10,8 @@ from pages.cusmanage import cusManage
 import unittest
 import time
 from common.assertFunction import AssertFunction
+from common.browsers import Browsers
 from data.userinfo import *
-import os
 
 class TestAddGroupNum(unittest.TestCase):
     driver=None
@@ -22,8 +22,8 @@ class TestAddGroupNum(unittest.TestCase):
     def setUp(self):
         global driver,check,user
 
-        browser = os.path.dirname(os.path.abspath('..'))+'\\'+Driver
-        driver = webdriver.Chrome(browser)
+        browser = Browsers(browserType)
+        driver = webdriver.Chrome(browser.select_browser())
         user = Login(driver)
         user.login(address,account,password)
         check = AssertFunction()

@@ -8,9 +8,9 @@ from selenium import webdriver
 from pages.login import Login
 import unittest
 from common.assertFunction import AssertFunction
+from common.browsers import Browsers
 from pages.sip_page import SipPage
 from data.userinfo import *
-import os
 
 class TestAddSip(unittest.TestCase):
     driver=None
@@ -20,8 +20,8 @@ class TestAddSip(unittest.TestCase):
 
     def setUp(self):
         global driver,check,user
-        browser = os.path.dirname(os.path.abspath('..'))+'\\'+Driver
-        driver = webdriver.Chrome(browser)
+        browser =Browsers(browserType)
+        driver = webdriver.Chrome(browser.select_browser())
         #登录
         user = Login(driver)
         user.login(address,account,password)

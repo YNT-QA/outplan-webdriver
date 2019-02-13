@@ -8,9 +8,9 @@ sys.path.append('..')
 from selenium import webdriver
 from pages.login import Login
 from common.assertFunction import AssertFunction
+from common.browsers import Browsers
 from pages.scene_page import ScenePage
 from data.userinfo import *
-import os
 
 class TestCreateScene(unittest.TestCase):
     driver = None
@@ -21,8 +21,8 @@ class TestCreateScene(unittest.TestCase):
 
     def setUp(self):
         global driver,check,user
-        browser = os.path.dirname(os.path.abspath('..'))+'\\'+Driver
-        driver = webdriver.Chrome(browser)
+        browser = Browsers(browserType)
+        driver = webdriver.Chrome(browser.select_browser())
         #登录
         user = Login(driver)
         user.login(address,account,password)

@@ -8,12 +8,12 @@ from selenium import webdriver
 from pages.login import Login
 import unittest
 from common.assertFunction import AssertFunction
+from common.browsers import Browsers
 from pages.outplan_page import OutPlanPage
 from pages.sip_page import SipPage
 from pages.cusmanage import cusManage
 import time
 from data.userinfo import *
-import os
 
 class TestCreatePlan(unittest.TestCase):
     driver = None
@@ -25,8 +25,8 @@ class TestCreatePlan(unittest.TestCase):
 
     def setUp(self):
         global driver,check,sip,group,user
-        browser =os.path.dirname(os.path.abspath('..'))+'\\'+Driver
-        driver = webdriver.Chrome(browser)
+        browser =Browsers(browserType)
+        driver = webdriver.Chrome(browser.select_browser())
         #登录
         user = Login(driver)
         user.login(address,account,password)

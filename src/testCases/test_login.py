@@ -8,7 +8,7 @@ from selenium import webdriver
 from pages.login import Login
 import unittest
 from common.assertFunction import AssertFunction
-import os
+from common.browsers import Browsers
 from data.userinfo import *
 
 
@@ -23,8 +23,8 @@ class Testlogin(unittest.TestCase):
     def test_login(self):
         u"""账号登录"""
         global driver,check,user
-        browser=os.path.dirname(os.path.abspath('..'))+'\\'+Driver
-        driver=webdriver.Chrome(browser)
+        browser=Browsers(browserType)
+        driver=webdriver.Chrome(browser.select_browser())
         user=Login(driver)
         user.login(address,account,password)
         check = AssertFunction()
