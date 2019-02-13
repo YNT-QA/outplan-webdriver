@@ -1,4 +1,5 @@
 browserType='Chrome'
+homepage_url='https://outbound.ynt.ai/outplan/index.html#/homepage'
 address ='https://outbound.ynt.ai/outplan/index.html#/login'
 account ='gurr@kalamodo.com'
 password ='ynt123'

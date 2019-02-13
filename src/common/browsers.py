@@ -15,9 +15,7 @@ class Browsers():
         if self.browserType=='Chrome':
             browser = os.path.dirname(os.path.abspath('..')) + '\\' + Driver
             return browser
-
         elif self.browserType=='IE':
             pass
-
         elif self.browserType=='FireFox':
             pass

@@ -28,6 +28,7 @@ class TestCreateScene(unittest.TestCase):
         user.login(address,account,password)
         check = AssertFunction()
         self.assertTrue(check.isElementExist(driver,e_personalDetails))
+        self.assertEqual(driver.current_url, homepage_url)
 
     def test_create_scene(self):
         u"""创建场景库"""

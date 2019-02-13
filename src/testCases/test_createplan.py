@@ -32,6 +32,7 @@ class TestCreatePlan(unittest.TestCase):
         user.login(address,account,password)
         check = AssertFunction()
         self.assertTrue(check.isElementExist(driver,e_personalDetails))
+        self.assertEqual(driver.current_url, homepage_url)
         #添加线路
         sip =SipPage(driver)
         sip.into_sip()
