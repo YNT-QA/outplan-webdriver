@@ -1,3 +1,4 @@
+browserType='Chrome'
 address ='https://outbound.ynt.ai/outplan/index.html#/login'
 account ='gurr@kalamodo.com'
 password ='ynt123'
@@ -85,10 +86,9 @@ e_type_financial="//li[contains(text(),'金融类')]"
 e_loans="//li[contains(text(),'贷款')]"
 e_deleteScene="//p[contains(text(),'%var%')]//ancestor::div[@class='ivu-card-body']/i"
 e_edit="//span[text()='编辑']"
+e_scene_flow="//div[contains(text(),'场景流程')]"
 e_mainProcess="//label[contains(text(),'主流程')]"
 e_addQuestion="//span[text()='添加问答']"
-e_endWord="//span[text()='添加结束语']"
-e_artificialService="//span[text()='添加转人工']"
 e_triggerCondition="//span[text()='自然顺序']"
 e_selectNatural="//li[text()='自然顺序']"
 e_selectOther="//li[text()='命中其他问答的预设回答结果']"
@@ -96,3 +96,7 @@ e_processName="//input[@placeholder='请填写本轮流程描述，方便辨识�
 e_wordDetils="//textarea[@placeholder='请填写合成语音内容,不超过400个字...']"
 e_otherWay="//div[contains(text(),'其他方式')]"
 e_syntheticVoice="//div[text()='合成语音']"
+e_submit="//span[text()='提交']"
+e_endWord="//span[text()='添加结束语']"
+e_endWordName="//input[@placeholder='填写本轮结束语的名称，方便辨识即可']"
+e_artificialService="//span[text()='添加转人工']"
