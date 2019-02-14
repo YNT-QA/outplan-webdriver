@@ -16,6 +16,14 @@ class Testlogin(unittest.TestCase):
     check = None
     user=None
 
+    @classmethod
+    def setUpClass(cls):
+        print('first...')
+
+    @classmethod
+    def tearDownClass(cls):
+        print('last...')
+
     def setUp(self):
         global driver
         browser = Browsers(browserType)
@@ -28,9 +36,10 @@ class Testlogin(unittest.TestCase):
         user.login(address,account,password)
         check = AssertFunction()
         self.assertTrue(check.isElementExist(driver,e_personalDetails))
-        self.assertTrue(str.find(driver.current_url,'homepage')!=-1)
+        self.assertIn('homepage',driver.current_url)
 
     def tearDown(self):
         #登出
         user.loginOut(account)
         driver.quit()
+
