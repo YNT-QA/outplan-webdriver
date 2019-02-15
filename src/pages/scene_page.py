@@ -6,6 +6,7 @@ import sys
 sys.path.append('..')
 from time import sleep
 from data.userinfo import *
+from selenium.webdriver.support.ui import WebDriverWait
 
 class ScenePage():
 
@@ -67,6 +68,33 @@ class ScenePage():
                 flag=False
             except:
                 pass
+
+    #编辑场景库
+    def edit_scene(self,scenename,name_1,name_2):
+        sleep(2)
+        self.driver.find_element_by_xpath(e_edit.replace('%var%',scenename)).click()
+        sleep(1)
+        self.driver.find_element_by_xpath(e_mainProcess).click()
+        sleep(1)
+        self.driver.find_element_by_xpath(e_addQuestion).click()
+        sleep(1)
+        self.driver.find_element_by_xpath(e_triggerCondition).click()
+        sleep(1)
+        self.driver.find_element_by_xpath(e_selectNatural).click()
+        sleep(1)
+        self.driver.find_element_by_xpath(e_processName).send_keys(name_1)
+        self.driver.find_element_by_xpath(e_wordDetils).send_keys(name_2)
+        sleep(1)
+        self.driver.find_element_by_xpath(e_otherWay).click()
+        sleep(1)
+        self.driver.find_element_by_xpath(e_syntheticVoice).click()
+        sleep(3)
+        self.driver.find_element_by_xpath(e_sure).click()
+        #element=WebDriverWait(self.driver,15).until(lambda x: x.find_element_by_xpath(e_sure))
+        sleep(1)
+        self.driver.find_element_by_xpath(e_negate).click()
+        self.driver.find_element_by_xpath(e_submit).click()
+        sleep(2)
 
     #删除场景库
     def delete_scene(self,sceneName):

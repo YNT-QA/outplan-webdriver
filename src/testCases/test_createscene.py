@@ -37,6 +37,8 @@ class TestCreateScene(unittest.TestCase):
         scene.into_scene()
         scene.create_scene(groupName)
         self.assertTrue(check.isElementExist(driver,e_deleteScene,groupName))
+        scene.edit_scene(groupName,name_1,name_2)
+        driver.find_element_by_xpath(e_sceneManage).click()
 
     def tearDown(self):
         scene.delete_scene(groupName)
