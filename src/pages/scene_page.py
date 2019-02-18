@@ -95,20 +95,40 @@ class ScenePage(Incident):
         self.click(e_otherWay)
         sleep(1)
         self.click(e_syntheticVoice)
-        sleep(1)
+
+        #单轮预设回答：肯定/否定
         if flag:
-            try:
+            tag=True
+            n=1
+            while tag:
                 #element = WebDriverWait(self.driver,15).until(lambda x: x.find_element_by_xpath(e_sure))
-                self.driver.implicitly_wait(10)
-                self.locate_element(e_sure)
-                sleep(2)
-                self.click(e_sure)
-            except:
-                print("定位失败")
+                #self.driver.implicitly_wait(10)
+                if n<=5:
+                    try:
+                        self.locate_element(e_sure)
+                        sleep(2)
+                        self.click(e_sure)
+                        tag=False
+                    except:
+                        n+=1
+                else:
+                    tag=False
+
             sleep(1)
             self.click(e_negate)
-        sleep(3)
-        self.click(e_submit)
+
+        tag2 = True
+        n2 = 1
+        while tag2:
+            if n2 <= 5:
+                try:
+                    self.locate_element(e_submit)
+                    sleep(2)
+                    self.click(e_submit)
+                except:
+                    n2 += 1
+            else:
+                tag2 = False
         sleep(2)
 
     #添加结束语
@@ -161,36 +181,26 @@ class ScenePage(Incident):
         sleep(1)
         #1开场语
         self.add_question(nameList[0],nameList[1],e_selectNatural)
-
         #2工作的打算
         self.add_question(nameList[2],nameList[3],e_selectNatural,True)
-
         #3挽留语1
-        self.add_question(nameList[4],nameList[5],e_selectOther,True,name2_1)
-
+        self.add_question(nameList[4],nameList[5],e_selectOther,True,nameList[2])
         #4加微信
-        self.add_question(nameList[6],nameList[7],e_selectOther,False,name3_1)
-
+        self.add_question(nameList[6],nameList[7],e_selectOther,False,nameList[4])
         #5结束语1
         self.add_endWords(nameList[8],nameList[9],e_selectOther,nameList[6],'匹配知识库',2,'其他任意回答')
-
         #6工作类型询问
-
-
+        self.add_question(nameList[10],nameList[11],e_selectNatural)
         #7工作地点询问
-
-
+        self.add_question(nameList[12],nameList[13],e_selectNatural)
         #8安排顾问
-
-
+        self.add_question(nameList[14],nameList[15],e_selectNatural,True)
         #9加微信(安排顾问-否定)
-
-
+        self.add_question(nameList[6],nameList[7],e_selectOther,False,nameList[14])
         #10结束语1
-
-
+        self.add_endWords(nameList[16],nameList[9],e_selectOther,nameList[6],'匹配知识库',2,'其他任意回答')
         #11结束语2
-
+        self.add_endWords(nameList[17],nameList[18],e_selectNatural)
 
     #删除场景库
     def delete_scene(self,sceneName):
