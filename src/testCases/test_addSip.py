@@ -27,6 +27,7 @@ class TestAddSip(unittest.TestCase):
         user.login(address,account,password)
         check = AssertFunction()
         self.assertTrue(check.isElementExist(driver,e_personalDetails))
+        self.assertIn('homepage', driver.current_url)
 
     def test_addSip(self):
         u"""添加线路"""

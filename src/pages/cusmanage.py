@@ -7,61 +7,63 @@ sys.path.append('..')
 import time
 from selenium.webdriver.common.action_chains import ActionChains
 from data.userinfo import *
+from src.common.incident import Incident
 
-class cusManage():
+class cusManage(Incident):
 
       def __init__(self,driver):
           self.driver=driver
+          super().__init__(driver)
 
       def cus_manage(self):
-          self.driver.find_element_by_xpath(e_phoneNumManage).click()
+          self.click(e_phoneNumManage)
           time.sleep(2)
 
       #添加客户组并导入号码
       def add_group(self,groupName,number):
-          self.driver.find_element_by_xpath(e_updateGroup).click()
+          self.click(e_updateGroup)
           time.sleep(2)
-          self.driver.find_element_by_xpath(e_addGroup).click()
+          self.click(e_addGroup)
           time.sleep(2)
-          self.driver.find_element_by_xpath(e_inputName).send_keys(groupName)
+          self.send_keys(e_inputName,groupName)
           time.sleep(2)
-          self.driver.find_element_by_xpath(e_commit).click()
+          self.click(e_commit)
           time.sleep(2)
-          self.driver.find_element_by_xpath(e_closeCusGroup).click()
+          self.click(e_closeCusGroup)
           time.sleep(2)
-          ActionChains(self.driver).move_to_element(self.driver.find_element_by_xpath(e_importNumber)).perform()
+          ActionChains(self.driver).move_to_element(self.locate_element(e_importNumber)).perform()
           time.sleep(2)
-          self.driver.find_element_by_xpath(e_manuallyAdd).click()
+          self.click(e_manuallyAdd)
           time.sleep(2)
-          self.driver.find_element_by_xpath(e_selectExistingGroup).click()
+          self.click(e_selectExistingGroup)
           time.sleep(2)
-          self.driver.find_element_by_xpath(e_selectGroup).click()
+          self.click(e_selectGroup)
           time.sleep(2)
-          self.driver.find_element_by_xpath(e_all.replace('%var%','全部')).click()
+          self.click(e_all,'全部')
           time.sleep(2)
-          self.driver.find_element_by_xpath(e_all.replace('%var%','kalamodo')).click()
+          self.click(e_all,'kalamodo')
           time.sleep(2)
-          self.driver.find_element_by_xpath(e_all.replace('%var%',groupName)).click()
+          self.click(e_all,groupName)
           time.sleep(2)
-          self.driver.find_element_by_xpath(e_numberText).send_keys(number)
+          self.send_keys(e_numberText,number)
           time.sleep(2)
-          elements = self.driver.find_elements_by_xpath(e_ensure)
+          elements = self.locate_elements(e_ensure)
           for element in elements:
               try:
                   element.click()
               except:
                   pass
           time.sleep(2)
-          self.driver.find_element_by_xpath(e_closePrompt).click()
+          self.click(e_closePrompt)
           time.sleep(2)
 
       def delete_group(self,groupName):
-          self.driver.find_element_by_xpath(e_updateGroup).click()
+          self.click(e_updateGroup)
           time.sleep(2)
-          self.driver.find_element_by_xpath(e_deleteGroup.replace('%var%',groupName)).click()
+          self.click(e_deleteGroup,groupName)
           time.sleep(2)
-          self.driver.find_element_by_xpath(e_deleteCommit.replace('%var%',groupName)).click()
+          self.click(e_deleteCommit,groupName)
           time.sleep(2)
-          self.driver.find_element_by_xpath(e_ok).click()
+          self.click(e_ok)
           time.sleep(2)
 
