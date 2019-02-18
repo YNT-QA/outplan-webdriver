@@ -2,13 +2,11 @@
 # 作者: 顾名思义
 # 时间: 2018/10/18 13:39
 # 文件: test_login.py
-import sys
-sys.path.append('..')
 from selenium import webdriver
-from pages.login import Login
+from src.pages.login import Login
 import unittest
-from common.assertFunction import AssertFunction
-from common.browsers import Browsers
+from src.common.assertFunction import AssertFunction
+from src.common.browsers import Browsers
 from data.userinfo import *
 
 class Testlogin(unittest.TestCase):

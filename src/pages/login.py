@@ -22,7 +22,7 @@ class Login():
         self.driver.find_element_by_xpath(e_password).send_keys(password)
         time.sleep(1)
         self.driver.find_element_by_xpath(e_login_button).click()
-        time.sleep(2)
+        time.sleep(3)
 
     #登出
     def loginOut(self,account):
