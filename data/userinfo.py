@@ -50,7 +50,7 @@ e_planName="//input[@placeholder='不超过30个字符']"
 planName='autoTest'
 e_selectScene="//span[text()='请选择呼叫场景']"
 e_sceneName="//li[text()='%var%']"
-sceneName='在线教育'
+sceneName='尚德墨丘利-副本'
 e_callType="//label[text()='%var%']"
 e_selectSip="//span[text()='可选择']"
 e_addSip="//span[text()='%var%']/ancestor::tr/td[1]/div/label/span/input"
