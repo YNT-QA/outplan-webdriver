@@ -4,7 +4,7 @@
 # 文件: incident.py
 from time import sleep
 
-class Incident():
+class Xpth():
 
     def __init__(self,driver):
         self.driver=driver
