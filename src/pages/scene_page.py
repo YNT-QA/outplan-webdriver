@@ -7,9 +7,9 @@ sys.path.append('..')
 from time import sleep
 from data.userinfo import *
 from selenium.webdriver.support.ui import WebDriverWait
-from src.common.incident import Incident
+from src.common.xpth import Xpth
 
-class ScenePage(Incident):
+class ScenePage(Xpth):
 
     def __init__(self,driver):
         self.driver = driver
