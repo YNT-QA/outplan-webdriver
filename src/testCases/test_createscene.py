@@ -6,7 +6,7 @@ import unittest
 import sys
 sys.path.append('..')
 from selenium import webdriver
-from pages.login import Login
+from pages.login_page import Login
 from common.assertFunction import AssertFunction
 from common.browsers import Browsers
 from pages.scene_page import ScenePage

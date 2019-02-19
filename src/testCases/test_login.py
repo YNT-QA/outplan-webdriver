@@ -3,7 +3,7 @@
 # 时间: 2018/10/18 13:39
 # 文件: test_login.py
 from selenium import webdriver
-from src.pages.login import Login
+from src.pages.login_page import Login
 import unittest
 from src.common.assertFunction import AssertFunction
 from src.common.browsers import Browsers

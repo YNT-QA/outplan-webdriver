@@ -5,8 +5,8 @@
 import sys
 sys.path.append('..')
 from selenium import webdriver
-from pages.login import Login
-from pages.cusmanage import cusManage
+from pages.login_page import Login
+from pages.cusmanage_page import cusManage
 import unittest
 import time
 from common.assertFunction import AssertFunction

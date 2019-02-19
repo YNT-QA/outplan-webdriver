@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # 作者: 顾名思义
 # 时间: 2018/10/19 10:48
-# 文件: cusmanage.py
+# 文件: cusmanage_page.py
 import sys
 sys.path.append('..')
 import time
