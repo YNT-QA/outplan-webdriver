@@ -5,13 +5,13 @@
 import sys
 sys.path.append('..')
 from selenium import webdriver
-from pages.login import Login
+from pages.login_page import Login
 import unittest
 from common.assertFunction import AssertFunction
 from common.browsers import Browsers
 from pages.outplan_page import OutPlanPage
 from pages.sip_page import SipPage
-from pages.cusmanage import cusManage
+from pages.cusmanage_page import cusManage
 import time
 from data.userinfo import *
 

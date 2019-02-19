@@ -20,15 +20,11 @@ class Login(Incident):
         self.driver.get(url)
         self.driver.maximize_window()
         self.send_keys(e_account,account)
-        time.sleep(1)
         self.send_keys(e_password,password)
-        time.sleep(1)
         self.click(e_login_button)
         time.sleep(3)
 
     #登出
     def loginOut(self,account):
         ActionChains(self.driver).move_to_element(self.locate_element(e_moveAccount.replace('%var%',account))).perform()
-        time.sleep(2)
         self.click(e_loginOut)
-        time.sleep(2)
