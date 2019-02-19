@@ -54,14 +54,9 @@ class ScenePage(Xpth):
                 element.click()
             except:
                 pass
+        #删除场景库
+        self.locate_element(e_deleteScene, sceneName)
 
-        flag=True
-        while flag:
-            try:
-                self.locate_element(e_deleteScene,sceneName)
-                flag=False
-            except:
-                pass
     #添加问答
     def add_question(self,name1,name2,triggerCondition,flag=False,name3=None):
         self.click(e_addQuestion)
