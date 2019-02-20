@@ -1,0 +1,10 @@
+plan_url_cms='https://outbound.ynt.ai/outbound-cms/index.html?#/login'
+plan_act_cms='gurr@ynt.ai'
+plan_pswd_cms='123456'
+acc_name='顾荣荣'
+e_act_cms="//input[@placeholder='注册邮箱地址']"
+e_pswd_cms="//input[@type='password']"
+e_lgButton_cms="//input[@value='立即登录']"
+e_mvacc_cms="//a[contains(text(),'%var%')]"
+e_lgOut_cms="//div[text()='退出']"
+e_username_cms="//a[contains(text(),'%var%')]"
