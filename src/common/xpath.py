@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 # 作者: 顾名思义
 # 时间: 2019/2/18 11:59
-# 文件: incident.py
+# 文件: Xpath.py
 from time import sleep
 import logging
 from selenium.webdriver.common.action_chains import ActionChains
 
-class Xpth():
+class Xpath():
 
     def __init__(self,driver):
         self.driver=driver

@@ -7,9 +7,9 @@ sys.path.append('..')
 import time
 from selenium.webdriver.common.action_chains import ActionChains
 from data.userinfo import *
-from src.common.xpth import Xpth
+from src.common.xpath import Xpath
 
-class Login(Xpth):
+class Login(Xpath):
 
     def __init__(self,driver):
         self.driver=driver

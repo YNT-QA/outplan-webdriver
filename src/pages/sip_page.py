@@ -5,9 +5,9 @@
 import sys
 sys.path.append('..')
 from data.userinfo import *
-from src.common.xpth import Xpth
+from src.common.xpath import Xpath
 
-class SipPage(Xpth):
+class SipPage(Xpath):
 
     def __init__(self,driver):
         self.driver = driver
