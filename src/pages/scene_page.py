@@ -5,10 +5,10 @@
 import sys
 sys.path.append('..')
 from data.userinfo import *
-from src.common.xpth import Xpth
+from src.common.xpath import Xpath
 from time import sleep
 
-class ScenePage(Xpth):
+class ScenePage(Xpath):
 
     def __init__(self,driver):
         self.driver = driver

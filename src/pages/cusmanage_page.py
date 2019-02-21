@@ -6,9 +6,9 @@ import sys
 sys.path.append('..')
 import time
 from data.userinfo import *
-from src.common.xpth import Xpth
+from src.common.xpath import Xpath
 
-class cusManage(Xpth):
+class cusManage(Xpath):
 
       def __init__(self,driver):
           self.driver=driver

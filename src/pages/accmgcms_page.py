@@ -3,10 +3,10 @@
 # 时间: 2019/2/20 11:58
 # 文件: accmgcms_page.py
 from data.userinfo_cms import *
-from src.common.xpth import Xpth
+from src.common.xpath import Xpath
 from time import sleep
 
-class AccMgCms(Xpth):
+class AccMgCms(Xpath):
 
     def __init__(self,driver):
         self.driver=driver
