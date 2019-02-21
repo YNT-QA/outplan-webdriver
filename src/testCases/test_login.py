@@ -5,7 +5,7 @@
 from selenium import webdriver
 from src.pages.login_page import Login
 import unittest
-from src.common.assertFunction import AssertFunction
+from src.common.assertfunc import AssertFunction
 from src.common.browsers import Browsers
 from data.userinfo import *
 

@@ -4,8 +4,6 @@
 # 文件: sip_page.py
 import sys
 sys.path.append('..')
-import time
-from selenium.webdriver.common.action_chains import ActionChains
 from data.userinfo import *
 from src.common.xpth import Xpth
 
@@ -18,11 +16,10 @@ class SipPage(Xpth):
     #进入线路管理菜单
     def into_sip(self):
         self.click(e_sip)
-        time.sleep(2)
 
     #添加线路
     def add_sip(self,sipAccount,sipPassword,sipIp,sipPort,city):
-        ActionChains(self.driver).move_to_element(self.locate_element(e_addButton)).perform()
+        self.move_to_element(e_addButton)
         self.click(e_ownSip)
         self.click(e_industryType)
         self.click(e_financial)
@@ -35,7 +32,6 @@ class SipPage(Xpth):
         self.click(e_locationSelectText)
         self.click(e_city,city)
         self.click(e_saveButton)
-        time.sleep(2)
 
     #删除线路
     def delete_sip(self,sipAccount,edit,deleteButton):
@@ -44,4 +40,3 @@ class SipPage(Xpth):
         self.click(e_saveButton)
         self.click(e_updateSip,sipAccount,deleteButton)
         self.click(e_ensure)
-        time.sleep(2)

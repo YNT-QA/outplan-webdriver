@@ -6,7 +6,6 @@
 import sys
 sys.path.append('..')
 import time
-from selenium.webdriver.common.action_chains import ActionChains
 from data.userinfo_cms import *
 from src.common.xpth import Xpth
 
@@ -23,10 +22,9 @@ class LoginCms(Xpth):
         self.send_keys(e_act_cms,account)
         self.send_keys(e_pswd_cms,password)
         self.click(e_lgButton_cms)
-        time.sleep(3)
 
     #登出
     def loginOut_cms(self,account):
-        ActionChains(self.driver).move_to_element(self.locate_element(e_mvacc_cms.replace('%var%',account))).perform()
+        self.move_to_element(e_mvacc_cms,account)
         self.click(e_lgOut_cms)
         time.sleep(1)

@@ -6,7 +6,7 @@
 from selenium import webdriver
 from src.pages.logincms_page import LoginCms
 import unittest
-from src.common.assertFunction import AssertFunction
+from src.common.assertfunc import AssertFunction
 from src.common.browsers import Browsers
 from data.userinfo_cms import *
 from data.userinfo import *
