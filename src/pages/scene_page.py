@@ -4,10 +4,9 @@
 # 文件: scene_page.py
 import sys
 sys.path.append('..')
-from time import sleep
 from data.userinfo import *
-from selenium.webdriver.support.ui import WebDriverWait
 from src.common.xpth import Xpth
+from time import sleep
 
 class ScenePage(Xpth):
 
@@ -55,13 +54,6 @@ class ScenePage(Xpth):
             except:
                 pass
 
-        flag=True
-        while flag:
-            try:
-                self.locate_element(e_deleteScene,sceneName)
-                flag=False
-            except:
-                pass
     #添加问答
     def add_question(self,name1,name2,triggerCondition,flag=False,name3=None):
         self.click(e_addQuestion)
@@ -116,34 +108,35 @@ class ScenePage(Xpth):
         self.click(e_submit)
 
     #编辑场景库
-    def edit_scene(self,scenename,nameList):
+    def edit_scene(self,scenename,namelist):
         self.click(e_edit,scenename)
         self.click(e_mainProcess)
         #1开场语
-        self.add_question(nameList[0],nameList[1],e_selectNatural)
+        self.add_question(namelist[0],namelist[1],e_selectNatural)
         #2工作的打算
-        self.add_question(nameList[2],nameList[3],e_selectNatural,True)
+        self.add_question(namelist[2],namelist[3],e_selectNatural,True)
         #3挽留语1
-        self.add_question(nameList[4],nameList[5],e_selectOther,True,nameList[2])
+        self.add_question(namelist[4],namelist[5],e_selectOther,True,namelist[2])
         #4加微信
-        self.add_question(nameList[6],nameList[7],e_selectOther,False,nameList[4])
+        self.add_question(namelist[6],namelist[7],e_selectOther,False,namelist[4])
         #5结束语1
-        self.add_endWords(nameList[8],nameList[9],e_selectOther,nameList[6],'匹配知识库',2,'其他任意回答')
+        self.add_endWords(namelist[8],namelist[9],e_selectOther,namelist[6],'匹配知识库',2,'其他任意回答')
         #6工作类型询问
-        self.add_question(nameList[10],nameList[11],e_selectNatural)
+        self.add_question(namelist[10],namelist[11],e_selectNatural)
         #7工作地点询问
-        self.add_question(nameList[12],nameList[13],e_selectNatural)
+        self.add_question(namelist[12],namelist[13],e_selectNatural)
         #8安排顾问
-        self.add_question(nameList[14],nameList[15],e_selectNatural,True)
+        self.add_question(namelist[14],namelist[15],e_selectNatural,True)
         #9加微信(安排顾问-否定)
-        self.add_question(nameList[6],nameList[7],e_selectOther,False,nameList[14])
+        self.add_question(namelist[6],namelist[7],e_selectOther,False,namelist[14])
         #10结束语1
-        self.add_endWords(nameList[16],nameList[9],e_selectOther,nameList[6],'匹配知识库',2,'其他任意回答')
+        self.add_endWords(namelist[16],namelist[9],e_selectOther,namelist[6],'匹配知识库',2,'其他任意回答')
         #11结束语2
-        self.add_endWords(nameList[17],nameList[18],e_selectNatural)
+        self.add_endWords(namelist[17],namelist[18],e_selectNatural)
+        sleep(2)
 
     #删除场景库
     def delete_scene(self,sceneName):
+        self.click(e_sceneManage)
         self.click(e_deleteScene,sceneName)
         self.click(e_endEnsure)
-        sleep(2)

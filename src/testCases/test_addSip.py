@@ -7,7 +7,7 @@ sys.path.append('..')
 from selenium import webdriver
 from pages.login_page import Login
 import unittest
-from common.assertFunction import AssertFunction
+from common.assertfunc import AssertFunction
 from common.browsers import Browsers
 from pages.sip_page import SipPage
 from data.userinfo import *

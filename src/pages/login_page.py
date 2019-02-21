@@ -22,9 +22,8 @@ class Login(Xpth):
         self.send_keys(e_account,account)
         self.send_keys(e_password,password)
         self.click(e_login_button)
-        time.sleep(3)
 
     #登出
     def loginOut(self,account):
-        ActionChains(self.driver).move_to_element(self.locate_element(e_moveAccount.replace('%var%',account))).perform()
+        self.move_to_element(e_moveAccount,account)
         self.click(e_loginOut)

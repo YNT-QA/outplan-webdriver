@@ -84,6 +84,7 @@ e_scene_Name="//label[text()='场景名称']/following-sibling::div[@class='ivu-
 e_businessType="//input[@placeholder='行业类型']"
 e_type_financial="//li[contains(text(),'金融类')]"
 e_loans="//li[contains(text(),'贷款')]"
+e_scene="//p[contains(text(),'%var%')]"
 e_deleteScene="//p[contains(text(),'%var%')]//ancestor::div[@class='ivu-card-body']/i"
 e_edit="//p[contains(text(),'%var%')]/parent::div/p[4]/button/span[text()='编辑']"
 e_scene_flow="//div[contains(text(),'场景流程')]"
@@ -127,3 +128,4 @@ name8_2='好的，我了解了，那一会我给您安排一个专属的求职�
 name10_1='结束语1'
 name11_1='结束语2'
 name11_2='好的，那稍后您注意接听一下优蓝95开头的来电号码，您的专属求职顾问会和您进行深入探讨，祝您生活愉快，再见！'
+nameList=[name1_1,name1_2,name2_1,name2_2,name3_1,name3_2,name4_1,name4_2,name5_1,name5_2,name6_1,name6_2,name7_1,name7_2,name8_1,name8_2,name10_1,name11_1,name11_2]

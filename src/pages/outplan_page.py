@@ -105,7 +105,7 @@ class OutPlanPage(Xpth):
             try:
                 #已结束状态点击删除计划
                 self.locate_element(e_finish,planName)
-                ActionChains(self.driver).move_to_element(self.locate_element(e_plan,planName)).perform()
+                self.move_to_element(e_plan,planName)
                 self.click(e_x)
                 self.click(e_x_ensure)
                 flag=False
@@ -117,7 +117,7 @@ class OutPlanPage(Xpth):
                     self.click(e_endEnsure,planName)
                     self.driver.refresh()
                     time.sleep(2)
-                    ActionChains(self.driver).move_to_element(self.locate_element(e_plan,planName)).perform()
+                    self.move_to_element(e_plan,planName)
                     self.click(e_x)
                     self.click(e_x_ensure)
                     flag = False

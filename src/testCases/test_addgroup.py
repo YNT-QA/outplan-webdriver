@@ -9,7 +9,7 @@ from pages.login_page import Login
 from pages.cusmanage_page import cusManage
 import unittest
 import time
-from common.assertFunction import AssertFunction
+from common.assertfunc import AssertFunction
 from common.browsers import Browsers
 from data.userinfo import *
 
@@ -43,7 +43,6 @@ class TestAddGroupNum(unittest.TestCase):
         group.delete_group(groupName)
         time.sleep(2)
         driver.find_element_by_xpath(e_closeCusGroup).click()
-        time.sleep(2)
         self.assertFalse(check.isElementExist(driver,e_deleteGroup,groupName))
         #登出
         user.loginOut(account)

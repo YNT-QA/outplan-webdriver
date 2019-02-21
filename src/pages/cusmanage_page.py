@@ -5,7 +5,6 @@
 import sys
 sys.path.append('..')
 import time
-from selenium.webdriver.common.action_chains import ActionChains
 from data.userinfo import *
 from src.common.xpth import Xpth
 
@@ -25,7 +24,7 @@ class cusManage(Xpth):
           self.send_keys(e_inputName,groupName)
           self.click(e_commit)
           self.click(e_closeCusGroup)
-          ActionChains(self.driver).move_to_element(self.locate_element(e_importNumber)).perform()
+          self.move_to_element(e_importNumber)
           self.click(e_manuallyAdd)
           self.click(e_selectExistingGroup)
           self.click(e_selectGroup)
@@ -41,12 +40,11 @@ class cusManage(Xpth):
               except:
                   pass
           self.click(e_closePrompt)
-          time.sleep(2)
 
       def delete_group(self,groupName):
           self.click(e_updateGroup)
           self.click(e_deleteGroup,groupName)
           self.click(e_deleteCommit,groupName)
           self.click(e_ok)
-          time.sleep(3)
+          time.sleep(2)
 
