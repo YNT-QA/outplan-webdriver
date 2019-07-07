@@ -24,7 +24,7 @@ class cusManage(Xpath):
           self.send_keys(e_inputName,groupName)
           self.click(e_commit)
           self.click(e_closeCusGroup)
-          self.move_to_element(e_importNumber)
+          self.click(e_importNumber)
           self.click(e_manuallyAdd)
           self.click(e_selectExistingGroup)
           self.click(e_selectGroup)

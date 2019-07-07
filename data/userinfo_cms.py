@@ -2,9 +2,9 @@ plan_url_cms='https://outbound.ynt.ai/outbound-cms/index.html?#/login'
 plan_act_cms='gurr@ynt.ai'
 plan_pswd_cms='123456'
 acc_name='顾荣荣'
-e_act_cms="//input[@placeholder='注册邮箱地址']"
+e_act_cms="//input[@placeholder='请输入邮箱账号']"
 e_pswd_cms="//input[@type='password']"
-e_lgButton_cms="//input[@value='立即登录']"
+e_lgButton_cms="//span[text()='立即登录']"
 e_mvacc_cms="//a[contains(text(),'%var%')]"
 e_lgOut_cms="//div[text()='退出']"
 e_username_cms="//a[contains(text(),'%var%')]"
@@ -27,3 +27,4 @@ companyname_cms='自动化测试'
 e_radio_cms="//span[text()='%var%']/ancestor::tr/td[1]/div/label/span"
 e_delcusacc="//span[text()='删除账号']"
 e_ensure_cms="//span[text()='确定']"
+e_scenemodel_cms="//label[contains(text(),'%var%')]/self::label/span"

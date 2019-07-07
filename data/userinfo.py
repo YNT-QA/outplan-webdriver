@@ -7,9 +7,9 @@ cases_path='src\\testCases\\'
 title='外呼计划UI层测试报告'
 description='测试情况'
 Driver='driver\\chromedriver.exe'
-e_account="//input[@placeholder='注册邮箱地址']"
+e_account="//input[@placeholder='请输入邮箱账号']"
 e_password="//input[@type='password']"
-e_login_button="//input[@value='立即登录']"
+e_login_button="//span[text()='立即登录']"
 e_updateGroup="//div[@class='caTitle']/i"
 e_phoneNumManage="//span[text()='客户管理']"
 e_addGroup="//span[text()='添加分组']"
@@ -20,7 +20,7 @@ e_deleteCommit="//span[text()='%var%']/ancestor::li/div/i[@title='删除']"
 e_ok="//div[@class='ivu-modal-confirm']/div[3]/button[2]/span"
 e_closeCusGroup="//div[text()='客户分组']/ancestor::div[@class='ivu-modal-content']/a"
 groupName='自动化测试'
-e_personalDetails="//a[contains(text(),'gurr@kalamodo.com')]"
+e_personalDetails="//div[contains(text(),'gurr@kalamodo.com')]"
 e_sip="//li/span[contains(text(),'线路管理')]"
 e_addButton="//button[@class='ivu-btn ivu-btn-primary']"
 e_ownSip="//li[text()='自有线路']"
@@ -37,9 +37,9 @@ e_sipState="//span[@class='ivu-switch ivu-switch-checked ivu-switch-large']"
 e_saveButton="//button[@class='mr60 ivu-btn ivu-btn-primary']"
 sipAccount='17100001888'
 number='17100001888'
-sipPassword='1234'
-sipIp='172.20.10.2'
-sipPort='5060'
+sipPassword='yntst123'
+sipIp='114.67.90.115'
+sipPort='8060'
 city='北京'
 e_updateSip="//span[text()='%var%']/ancestor::td[@class='ivu-table-hidden']/preceding-sibling::td/div/div/span[text()='%edit%']"
 e_ensure="//span[text()='确定']"
@@ -74,7 +74,7 @@ e_plan="//p[text()='%var%']/ancestor::div[@class='card active']"
 e_x="//div[text()='x']"
 e_finish="//p[text()='%var%']/ancestor::div[@class='cardTitle']/p/span[text()='已结束']"
 e_x_ensure="//div[text()='提示']/ancestor::div[@class='ivu-modal-confirm']/div[3]/button[2]/span[text()='确定']"
-e_moveAccount="//a[contains(text(),'%var%')]"
+e_moveAccount="//div[contains(text(),'%var%')]"
 e_loginOut="//i[text()='退出']"
 e_intoScene="//span[text()='话术中心']"
 e_sceneManage="//span[text()='话术配置']"
