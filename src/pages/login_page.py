@@ -8,7 +8,11 @@ import time
 from selenium.webdriver.common.action_chains import ActionChains
 from data.userinfo import *
 from src.common.xpath import Xpath
+import datetime
+import os
+from src.common.logger import Logger
 
+mylogger = Logger(logger='test_login').getlog()
 class Login(Xpath):
 
     def __init__(self,driver):
@@ -22,6 +26,11 @@ class Login(Xpath):
         self.send_keys(e_account,account)
         self.send_keys(e_password,password)
         self.click(e_login_button)
+        now_time = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+        #截图
+        self.driver.get_screenshot_as_file(os.path.dirname(os.path.abspath('..')) + '\\' + 'screenshot\\' + now_time + '.png')
+        #打印日志
+        mylogger.info('登录外呼系统前台')
 
     #登出
     def loginOut(self,account):

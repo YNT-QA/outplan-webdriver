@@ -15,6 +15,7 @@ class AccMgCms(Xpath):
     def into_accmg(self):
         self.click(e_cusmanage_cms)
 
+    #创建正式账号
     def add_account(self,email,phone,companyname,number):
         flag=True
         i=1
@@ -27,7 +28,7 @@ class AccMgCms(Xpath):
                     break
                 except:
                     i+=1
-            if i>5:
+            if i>10:
                 flag = False
 
         self.click(e_corpcus_cms)
@@ -49,6 +50,9 @@ class AccMgCms(Xpath):
         self.click(e_indtype_cms)
         self.click(e_industrys_cms,'金融类')
         self.click(e_industrys_cms,'其他类')
+        #sleep(2)
+        #self.driver.find_element_by_class_name('vue-treeselect__control-arrow-container').click()
+        #self.click(e_scenemodel_cms,'贷款挖掘_示例')
 
         elements_step2 = self.locate_elements(e_nextstep_cms)
         for element in elements_step2:
@@ -60,6 +64,7 @@ class AccMgCms(Xpath):
 
         self.click(e_returnlist_cms)
 
+    #删除账号
     def delete_account(self):
         self.click(e_radio_cms,cusemail_cms)
         self.click(e_delcusacc)

@@ -20,7 +20,7 @@ class OutPlanPage(Xpath):
         self.click(e_outPlanMenu)
 
     #创建外呼计划
-    def create_outplan(self,planName,sceneName,sipAccount,groupName,callType='立即呼叫'):
+    def create_outplan(self,planName,sceneName,sipAccount,groupName,callType='立即开启'):
         self.click(e_createPlan)
 
         elements=self.locate_elements(e_planName)
@@ -39,13 +39,13 @@ class OutPlanPage(Xpath):
 
         self.click(e_sceneName,sceneName)
         #选择呼叫类型
-        if callType=='立即呼叫':
-            self.select_callType(callType)
-        elif callType=='定时呼叫':
-            self.select_callType(callType)
+        if callType=='立即开启':
+            self.select_element(callType)
+        elif callType=='定时开启':
+            self.select_element(callType)
         else:
-            self.select_callType(callType)
-
+            self.select_element(callType)
+        #选择线路
         time.sleep(2)
         elements3 = self.locate_elements(e_selectSip)
         for element in elements3:
@@ -87,8 +87,8 @@ class OutPlanPage(Xpath):
             except:
                 pass
 
-    def select_callType(self,callType):
-        elements = self.locate_elements(e_callType,callType)
+    def select_element(self,value,element=e_callType):
+        elements = self.locate_elements(element,value)
         for element in elements:
             try:
                 element.click()
