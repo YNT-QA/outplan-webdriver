@@ -5,18 +5,21 @@
 from time import sleep
 import logging
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
+from poium import Page,PageElements,PageElement
 
-class Xpath():
+class Xpath(Page):
 
     def __init__(self,driver):
         self.driver=driver
+        super().__init__(driver)
 
     #xpth定位单个元素
-    def locate_element(self,locator,old_name=None,old_name2=None):
+    def locate_element(self,locator,old_name=None,old_name2=None,timeout=10):
         tag = True
         n = 1
         while tag:
-            if n <= 9:
+            if n <= timeout:
                 if old_name and old_name2==None:
                     try:
                         element =self.driver.find_element_by_xpath(locator.replace('%var%',old_name))
@@ -39,15 +42,16 @@ class Xpath():
                         n += 1
                         sleep(1)
             else:
-                tag = False
-                logging.error('NoSuchElement!!!(locate_element:%s)'%locator)
+                #tag=False
+                #logging.error('NoSuchElement!!!(locate_element:%s)'%locator)
+                raise ValueError('NoSuchElement!!!(locate_element:%s)'%locator)
 
     #xpth定位多个元素
-    def locate_elements(self,locator,old_name=None):
+    def locate_elements(self,locator,old_name=None,timeout=10):
         tag = True
         n = 1
         while tag:
-            if n <= 9:
+            if n <= timeout:
                 if old_name:
                     try:
                         elements=self.driver.find_elements_by_xpath(locator.replace('%var%',old_name))
@@ -63,15 +67,16 @@ class Xpath():
                         n += 1
                         sleep(1)
             else:
-                tag = False
-                logging.error('NoSuchElement!!!(locate_elements:%s)'%locator)
+                #tag = False
+                #logging.error('NoSuchElement!!!(locate_elements:%s)'%locator)
+                raise ValueError('NoSuchElement!!!(locate_elements:%s)' % locator)
 
     #隐式等待，点击事件
-    def click(self,locator,old_name=None,old_name2=None):
+    def click(self,locator,old_name=None,old_name2=None,timeout=10):
         tag = True
         n = 1
         while tag:
-            if n <= 9:
+            if n <= timeout:
                 if old_name and old_name2==None:
                     try:
                         element=self.locate_element(locator,old_name)
@@ -100,15 +105,16 @@ class Xpath():
                         n+=1
                         sleep(1)
             else:
-                tag = False
-                logging.error('NoSuchElement!!!(click:%s)'%locator)
+                #tag = False
+                #logging.error('NoSuchElement!!!(click:%s)'%locator)
+                raise ValueError('NoSuchElement!!!(click:%s)'%locator)
 
     #文本框输入事件
-    def send_keys(self,locator,keys,old_name=None):
+    def send_keys(self,locator,keys,old_name=None,timeout=10):
         tag = True
         n = 1
         while tag:
-            if n <= 7:
+            if n <= timeout:
                 if old_name:
                     try:
                         element =self.locate_element(locator,old_name)
@@ -128,16 +134,19 @@ class Xpath():
                         n+=1
                         sleep(1)
             else:
-                tag = False
-                logging.error('NoSuchElement!!!(send_keys:%s)'%locator)
+                #tag = False
+                #logging.error('NoSuchElement!!!(send_keys:%s)'%locator)
+                raise ValueError('NoSuchElement!!!(send_keys:%s)'%locator)
 
     #清除文本框
     def text_clear(self,locator):
-        self.locate_element(locator).clear()
+        #self.locate_element(locator).clear()
+        self.locate_element(locator).send_keys(Keys.CONTROL+'a')
+
 
     #鼠标悬停事件
     def move_to_element(self,locator,old_name=None):
-        sleep(3)
+        sleep(4)
         if old_name:
             element = self.locate_element(locator,old_name)
             ActionChains(self.driver).move_to_element(element).perform()

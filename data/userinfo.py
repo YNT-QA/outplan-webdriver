@@ -51,8 +51,8 @@ planName='autoTest'
 e_selectScene="//span[text()='请选择呼叫场景']"
 e_sceneName="//li[text()='%var%']"
 sceneName='尚德墨丘利-副本'
-e_callType="//label[text()='%var%']"
-e_selectSip="//span[text()='可选择']"
+e_callType="//span[text()='%var%']"
+e_selectSip="//span[text()='%var%']"
 e_addSip="//span[text()='%var%']/ancestor::tr/td[1]/div/label/span/input"
 e_allSelectSip="//span[text()='sip名称']/ancestor::tr/th[1]/div/label/span/input"
 e_group="//label[text()='选择客户组']/self::label/span/input"

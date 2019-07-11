@@ -25,19 +25,19 @@ class Testlogin(unittest.TestCase):
     def setUp(self):
         global driver
         browser = Browsers(browserType)
-        driver = webdriver.Chrome(browser.select_browser())
+        self.driver = webdriver.Chrome(browser.select_browser())
 
     def test_login(self):
         u"""账号登录"""
         global check,user
-        user=Login(driver)
+        user=Login(self.driver)
         user.login(address,account,password)
         check = AssertFunction()
-        self.assertTrue(check.isElementExist(driver,e_personalDetails))
-        self.assertIn('homepage',driver.current_url)
+        self.assertTrue(check.isElementExist(self.driver,e_personalDetails))
+        self.assertIn('homepage',self.driver.current_url)
 
     def tearDown(self):
         #登出
         user.loginOut(account)
-        driver.quit()
+        self.driver.quit()
 
