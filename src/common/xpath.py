@@ -7,7 +7,12 @@ import logging
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 from poium import Page,PageElements,PageElement
+import datetime
+import os
+from src.common.logger import Logger
 
+#create a logger instance
+logger = Logger(logger="BasePage").getlog()
 class Xpath(Page):
 
     def __init__(self,driver):
@@ -23,6 +28,7 @@ class Xpath(Page):
                 if old_name and old_name2==None:
                     try:
                         element =self.driver.find_element_by_xpath(locator.replace('%var%',old_name))
+                        logger.info("locate element %s"%element)
                         return element
                     except:
                         n += 1
@@ -30,6 +36,7 @@ class Xpath(Page):
                 elif old_name and old_name2:
                     try:
                         element =self.driver.find_element_by_xpath(locator.replace('%var%',old_name).replace('%edit%',old_name2))
+                        logger.info("locate element %s" % element)
                         return element
                     except:
                         n += 1
@@ -37,6 +44,7 @@ class Xpath(Page):
                 elif old_name==None and old_name2==None:
                     try:
                         element=self.driver.find_element_by_xpath(locator)
+                        logger.info("locate element %s" % element)
                         return element
                     except:
                         n += 1
@@ -55,6 +63,7 @@ class Xpath(Page):
                 if old_name:
                     try:
                         elements=self.driver.find_elements_by_xpath(locator.replace('%var%',old_name))
+                        logger.info("locate elements %s" % elements)
                         return elements
                     except:
                         n += 1
@@ -62,6 +71,7 @@ class Xpath(Page):
                 else:
                     try:
                         elements =self.driver.find_elements_by_xpath(locator)
+                        logger.info("locate elements %s" % elements)
                         return elements
                     except:
                         n += 1
@@ -81,6 +91,7 @@ class Xpath(Page):
                     try:
                         element=self.locate_element(locator,old_name)
                         element.click()
+                        logger.info("click element %s" % element)
                         tag =False
                         break
                     except:
@@ -90,6 +101,7 @@ class Xpath(Page):
                     try:
                         element=self.locate_element(locator,old_name,old_name2)
                         element.click()
+                        logger.info("click element %s" % element)
                         tag = False
                         break
                     except:
@@ -99,6 +111,7 @@ class Xpath(Page):
                     try:
                         element=self.locate_element(locator)
                         element.click()
+                        logger.info("click element %s" % element)
                         tag = False
                         break
                     except:
@@ -119,6 +132,7 @@ class Xpath(Page):
                     try:
                         element =self.locate_element(locator,old_name)
                         element.send_keys(keys)
+                        logger.info("send_keys %s" % element)
                         tag = False
                         break
                     except:
@@ -128,6 +142,7 @@ class Xpath(Page):
                     try:
                         element =self.locate_element(locator)
                         element.send_keys(keys)
+                        logger.info("send_keys %s" % element)
                         tag = False
                         break
                     except:
@@ -142,6 +157,7 @@ class Xpath(Page):
     def text_clear(self,locator):
         #self.locate_element(locator).clear()
         self.locate_element(locator).send_keys(Keys.CONTROL+'a')
+        logger.info("clear text %s" % locator)
 
 
     #鼠标悬停事件
@@ -150,7 +166,20 @@ class Xpath(Page):
         if old_name:
             element = self.locate_element(locator,old_name)
             ActionChains(self.driver).move_to_element(element).perform()
+            logger.info("move_to_element %s" % element)
         else:
             element = self.locate_element(locator)
             ActionChains(self.driver).move_to_element(element).perform()
+            logger.info("move_to_element %s" % element)
+
+    #截图保存
+    def get_windows_img(self):
+        now_time = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+        screen_name = os.path.dirname(os.path.abspath('..')) + '\\' + 'screenshot\\' + now_time + '.png'
+        try:
+            self.driver.get_screenshot_as_file(screen_name)
+            logger.info("Had take screenshot and save to folder : /screenshots")
+        except NameError as e:
+            logger.error("Failed to take screenshot! %s" % e)
+            self.get_windows_img()
 
